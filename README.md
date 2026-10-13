@@ -26,6 +26,7 @@ You have a domain name. In the following document, the variable BASH `DOMAIN` re
 | TCP:80          | 80                |
 | TCP:443         | 443               |
 | TCP:5223        | 5223              |
+
 Check your NAT configuration: [Checking NAT configuration](check-nat.md)
 
 ### Docker
