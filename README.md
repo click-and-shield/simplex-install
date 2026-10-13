@@ -19,6 +19,8 @@ You have a domain name. In the following document, the variable BASH `DOMAIN` re
 
 ### Router configuration (NAT configuration)
 
+![](images/nat.png)
+
 | **Public port** | **Internal Port** |
 |-----------------|-------------------|
 | TCP:80          | 80                |
@@ -47,10 +49,19 @@ Signed-By: /etc/apt/keyrings/docker.asc
 EOF
 sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+Reboot:
+
+```bash
 sudo reeboot
+```
+Then test the installation:
+
+```bash
 sudo systemctl status docker
 sudo docker run hello-world
-```
+``` 
 ## Check the OS
 
 ```bash
