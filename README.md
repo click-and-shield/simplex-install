@@ -167,7 +167,7 @@ sudo docker start <container id>
 Check that the containers are ruuning:
 
 ```bash 
-docker ps --filter="name=${NAME}" --filter="status=running" --format="{{.ID}}"
+sudo docker ps --filter="name=${NAME}" --filter="status=running" --format="{{.ID}} {{.Names}} {{.Status}}"
   ```
 
 Consult the LOGs for a container:
