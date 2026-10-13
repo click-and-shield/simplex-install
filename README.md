@@ -136,7 +136,7 @@ cdb9f5ad6720 simplexchat-smp-server-caddy-1      Up 43 minutes (healthy)
 
 ## Notes
 
-If you need to stop a containera:
+If you need to stop a container:
 
 ```bash
 sudo docker stop <container ID> 
