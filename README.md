@@ -104,6 +104,16 @@ sed -Ei "s/^ADDR=.*/ADDR=${DOMAIN}/g ; s/^#?PASS=.*/PASS=${PASSWORD}/g" .env && 
 
 ## Start the containers
 
+First, make sure that no process use port 80, 443 or 5223.
+
+```bash
+sudo ss -lntp 'sport = :80'
+sudo ss -lntp 'sport = :443'
+sudo ss -lntp 'sport = :5223'
+```
+
+Then, start the containers:
+
 ```bash
 sudo docker compose up
 ```
@@ -129,7 +139,7 @@ sudo docker container ls --all --format   "{{.ID}} {{.Names}} {{.Status}}" --fil
 Result:
 
 ```bash
-simplex@turbo:~/smp-server$ sudo docker container ls --all --format   "{{.ID}} {{.Names}} {{.Status}}" --filter="status=running"
+simplex@turbo:~/smp-server$ sudo docker container ls --all --format "{{.ID}} {{.Names}} {{.Status}}" --filter="status=running"
 3db6cc1096e6 simplexchat-smp-server-smp-server-1 Up 43 minutes
 cdb9f5ad6720 simplexchat-smp-server-caddy-1      Up 43 minutes (healthy)
 ```
