@@ -130,7 +130,8 @@ The server's address is: `smp://xxx@xxx` (please note that we've removed the suf
 
 > - You can use this QR code generator to generate a QR code for your server's address: [https://click-and-shield.github.io/privacy-tools/web/qrcode.html](https://click-and-shield.github.io/privacy-tools/web/qrcode.html)
 > - You can consult the LOG to retrieve the server's address:
->   ```bash`
+>  
+>   ```bash
 >   sudo docker compose logs --no-color --no-log-prefix smp-server 2>&1 | grep -F "Server address"
 >   ``` 
 
