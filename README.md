@@ -1,5 +1,11 @@
 # Installing your personal SimpleX server
 
+This document shows how to install a SimpleX server on Ubuntu 24.04.
+
+In the following document:
+- the variable `DOMAIN` represents the domain name you want to assign to your SimpleX server.
+- the _server host_ is the host you want to install SimpleX to.
+
 ## Prerequisites
 
 ### Operating system
@@ -18,6 +24,8 @@ PRETTY_NAME="Ubuntu 24.04.5 LTS"
 You have a domain name. In the following document, the variable BASH `DOMAIN` represents the domain name associated with the SIMPLX server. Please note that you can use [DuckDns](https://www.duckdns.org) to have a free domain name.
 
 ### Router configuration (NAT configuration)
+
+If you install the server on a VPS, then skip this section.
 
 ![](images/nat.png)
 
@@ -148,6 +156,87 @@ simplex@turbo:~/smp-server$ sudo docker container ls --all --format "{{.ID}} {{.
 3db6cc1096e6 simplexchat-smp-server-smp-server-1 Up 43 minutes
 cdb9f5ad6720 simplexchat-smp-server-caddy-1      Up 43 minutes (healthy)
 ```
+
+Check that the server WEB interface is accessible: open the URL `https://${DOMAIN}` in a WEB browser.
+
+> Please keep in mind that `${DOMAIN}` is the domain associated with the SimpleX server (for example: `example.com`, or `mysimplex.duckdns.org`).
+
+# Directory tree
+
+If you've followed this procedure above, then you should have the following directory tree under `/home/simplex/smp-server`:
+
+```
+simplex@turbo:~/smp-server$ tree
+.
+├── caddy_conf
+│   └── Caddyfile
+├── docker-compose.yml
+├── smp_configs
+│   ├── ca.crt
+│   ├── ca.key
+│   ├── ca.srl
+│   ├── fingerprint
+│   ├── openssl_ca.conf
+│   ├── openssl_server.conf
+│   ├── server.crt
+│   ├── server.csr
+│   ├── server.key
+│   └── smp-server.ini
+└── smp_state
+    ├── backups
+    │   ├── messages
+    │   ├── queues
+    │   └── stats
+    ├── smp-server-stats.daily.log
+    ├── smp-server-store.log
+    └── www
+        ├── a
+        │   └── index.html
+        ├── c
+        │   └── index.html
+        ├── contact
+        │   └── index.html
+        ├── g
+        │   └── index.html
+        ├── i
+        │   └── index.html
+        ├── index.html
+        ├── invitation
+        │   └── index.html
+        ├── media
+        │   ├── apk_icon.png
+        │   ├── apple_store.svg
+        │   ├── contact.js
+        │   ├── contact_page_mobile.png
+        │   ├── favicon.ico
+        │   ├── f_droid.svg
+        │   ├── GilroyBold.woff2
+        │   ├── GilroyLight.woff2
+        │   ├── GilroyMedium.woff2
+        │   ├── GilroyRegularItalic.woff2
+        │   ├── GilroyRegular.woff2
+        │   ├── google_play.svg
+        │   ├── logo-dark.png
+        │   ├── logo-light.png
+        │   ├── logo-symbol-dark.svg
+        │   ├── logo-symbol-light.svg
+        │   ├── moon.svg
+        │   ├── qrcode.js
+        │   ├── script.js
+        │   ├── style.css
+        │   ├── sun.svg
+        │   ├── swiper-bundle.min.css
+        │   ├── swiper-bundle.min.js
+        │   ├── tailwind.css
+        │   └── testflight.png
+        ├── r
+        │   └── index.html
+        └── well-known
+            ├── apple-app-site-association
+            └── assetlinks.json
+```
+
+The description for these directory is given [hare](tree.md).
 
 ## Notes
 
